@@ -1,0 +1,12 @@
+
+spring:
+  data:
+    mongodb:
+        uri: mongodb://${MONGODB_USERNAME}:${MONGODB_PASSWORD}@mongo-mongodb-0.mongo-mongodb-headless.mongodb.svc:27017,mongo-mongodb-1.mongo-mongodb-headless.mongodb.svc:27017,mongo-mongodb-2.mongo-mongodb-headless.mongodb.svc:27017/test
+logging:
+  level:
+    org:
+      springframework:
+        data.mongodb: INFO
+        boot.autoconfigure.mongo: INFO
+    com.mongodb.client: INFO
