@@ -13,15 +13,15 @@ public class BookService {
     @Autowired
     private BookRepository bookrepo;
 
-    public Book createBook(Book book) {
+    public Book createBook(Book book) throws Exception {
         return bookrepo.save(book);
     }
 
-    public List<Book> allBook() {
+    public List<Book> allBook() throws Exception {
         return (List<Book>) bookrepo.findAll();
     }
 
-    public void editBook(String id, Book updatedBook) {
+    public void editBook(String id, Book updatedBook) throws Exception {
         Book existingBook = bookrepo.findById(id).orElse(null);
         if (existingBook != null) {
             existingBook.setName(updatedBook.getName());

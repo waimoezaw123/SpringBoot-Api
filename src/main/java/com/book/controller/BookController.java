@@ -26,18 +26,18 @@ public class BookController {
     }
 
     @RequestMapping(value = "/addBook", method = RequestMethod.POST)
-    public void createBook(@RequestBody Book book) {
+    public void createBook(@RequestBody Book book) throws Exception {
         bookService.createBook(book);
         log.info("Book Add");
     }
 
     @RequestMapping(value = "/getBook", method = RequestMethod.GET)
-    public List<Book> getBook() {
+    public List<Book> getBook() throws Exception {
         return bookService.allBook();
     }
 
     @RequestMapping(value = "/updateBook/{id}", method = RequestMethod.PUT)
-    public String updateBook(@PathVariable(value = "id") String id, @RequestBody Book book) {
+    public String updateBook(@PathVariable(value = "id") String id, @RequestBody Book book) throws Exception {
         bookService.editBook(id, book);
         return "Update Successfully!";
     }
